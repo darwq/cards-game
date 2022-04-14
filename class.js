@@ -1,35 +1,44 @@
-export default class Grid{
-    constructor(div){
-        createSquare(div);
-    }
+export default class Grid {
+  constructor(div, moves) {
+    createSquare(div, moves);
+  }
 }
 
-let numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+let numbers = [1, "", "", 4, "", "", 7, "", 9, "", "", 12, "", 14, 15, 16];
 
-function createSquare(div){
-    numbers = numbers.sort((a, b) => 0.5 - Math.random());
-    
-    for(let i = 0; i < 16; i++){
+function createSquare(div, moves) {
+  numbers = numbers.sort((a, b) => 0.5 - Math.random());
 
-        let squareContainer = document.createElement('div');
-        squareContainer.classList.add("square-container");
+  for (let i = 0; i < 16; i++) {
+    let squareContainer = document.createElement("div");
+    squareContainer.classList.add("square-container");
 
-        let square = document.createElement('div');
-        square.classList.add("square");
+    let square = document.createElement("div");
+    square.classList.add("square");
 
-        square.appendChild(squareContainer);
+    square.appendChild(squareContainer);
 
-        // STOPPING THE USER FROM SEEING THE NUMBERS
-        setTimeout(() => {
-            square.setAttribute("data-content",numbers[i]);
-        },1000);
+    // STOPPING THE USER FROM SEEING THE NUMBERS
+    setTimeout(() => {
+      square.setAttribute("data-content", numbers[i]);
+    }, 1000);
 
-        div.appendChild(square);
-    }
+    div.appendChild(square);
+  }
 
-    document.querySelectorAll(".square-container").forEach(element => element.addEventListener('click', (e) => {
-    document.querySelectorAll(".square-container").forEach(element => element.classList.remove("select"));
-    e.target.classList.toggle("select");
-}));
+  document.querySelectorAll(".square-container").forEach((element) =>
+    element.addEventListener("click", (e) => {
+      document
+        .querySelectorAll(".square-container")
+        .forEach((element) => element.classList.remove("select"));
+
+      // CHECKING FOR THE PARENT SELECT CONDITION
+
+      if (e.target.parentNode.style.transform !== "rotateY(180deg)") {
+        if (moves !== 0) {
+          e.target.classList.toggle("select");
+        }
+      }
+    })
+  );
 }
-

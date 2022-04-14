@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Game</title>
+
+    <link
+      rel="icon"
+      href="https://www.pngkey.com/png/full/208-2086315_open-icon-game-png.png"
+    />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <script type="module" src="script.js"></script>
-</head>
-<body oncontextmenu="return false">
+  </head>
+  <body oncontextmenu="return false">
+    <h1 class="user-instruction">Select a card first.</h1>
+    <div class="player-stats">
+      <h1 class="points">Points: 0/ 25</h1>
+      <h1 class="moves">Moves: 4 / 4</h1>
+      <h1 class="score">Score: 0</h1>
+    </div>
     <button class="open-rules-button">Rules</button>
     <div class="content">
-        <!-- SQUARE CONTENT -->
+      <!-- SQUARE CONTENT -->
     </div>
     <div class="buttons">
-        <button class="show">Show</button>
-        <button class="restart">Restart</button>
+      <button class="show">Show</button>
+      <button class="restart">Restart</button>
     </div>
     <div class="rules">
-        <h1 class="header">Game Rules</h1>
-        <div class="content">
+      <h1 class="header">Game Rules</h1>
+      <div class="content">
+        <div class="play-instructions">
+          <h1>How to play?</h1>
+          <ul class="list-instructions">
+            <li class="instruction">
+              The player has one chance to win the game.
+            </li>
+            <li class="instruction">
+              The player has to earn either the minimum number of points or a
+              bigger number than minimum.
+            </li>
+            <li class="instruction">
+              In case in which the player has accumulated more than the minimum
+              number of points - the player will be given the additional points
+              in in the next round.
+            </li>
+            <li class="instruction">
+              The points are calculated when the user uses his number of moves.
+            </li>
+          </ul>
         </div>
+      </div>
+      <button class="close-rules-button">Close</button>
     </div>
-</body>
+    <div class="restart-game-bg">
+      <div class="restart-game">
+        <h1>You have lost!</h1>
+        <h3>Do you want to play again?</h3>
+        <button id="restart-button">Restart</button>
+      </div>
+    </div>
+  </body>
 </html>
